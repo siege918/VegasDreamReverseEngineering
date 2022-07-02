@@ -8,7 +8,7 @@ $CEE9##Branch if user is defined
 $CD02#IndexToPlayerOffset#
 $C3B7##Copy player data offset to register X
 $CEF7##Initialize X to 0
-$CEF9#AND the player data with 0x40 to get gender bit#
+$CEF9##AND the player data with 0x40 to get gender bit
 $CEFB##If gender is 0, user is Mr., branch to $CEFF
 $CEFD##Set X to 2 if Ms.
 $CF01#GenderGraphicLoadingLoop#Load in graphic pointer for portion of signifier
@@ -19,8 +19,6 @@ $CF0C##Load 0x3D into A
 $CF0E#Load dot graphic#
 $CF25#M#
 $CF26#s.#s.
-$CF23#M#
-$CF24#r.#
 $CF17#RenderNameLoop#Load the Xth letter of the name
 $CF10##Reset Y
 $CF11##Load player data
@@ -28,3 +26,8 @@ $CF1A##Place the letter sprite into X position (from Y register)
 $CF1C##Increment X to get next letter
 $CF1E##Loop until Y == 0x0D
 $CF1D##Increment Y to go to next space
+$CEEB##Load empty space
+$CEEF#PrintEmptySpaceForNameLoop#Print empty space in location
+$CEF1##Increment location
+$CEF2##Loop until Y == 0x0D
+$CEE6#RenderPlayerName#
